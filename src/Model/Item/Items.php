@@ -16,6 +16,7 @@ class Items extends Base
 {
     /**
      * @var Item[] 商品对象，数组
+     * 必填
      */
     public $item;
 }
