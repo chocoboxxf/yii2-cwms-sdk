@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP File
+ * 货主同步接口测试
  * User: chocoboxxf
  * Date: 2017/8/8
  */
@@ -8,6 +8,10 @@ namespace chocoboxxf\Cwms\Tests;
 
 use chocoboxxf\Cwms\Model\Customer\Customer;
 
+/**
+ * 货主同步接口测试
+ * @package chocoboxxf\Cwms\Tests
+ */
 class CustomerSyncTest extends BaseTest
 {
     public function testSync()
