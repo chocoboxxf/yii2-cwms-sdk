@@ -40,7 +40,7 @@ class Item extends Base
     public $itemCode;
     /**
      * @var string 仓储系统商品编码
-     * 必填，最长50字
+     * 最长50字
      */
     public $itemId;
     /**
