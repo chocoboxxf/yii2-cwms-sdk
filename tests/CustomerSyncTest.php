@@ -13,6 +13,7 @@ class CustomerSyncTest extends BaseTest
     public function testSync()
     {
         $customer = Customer::newInstance([
+            // 必填
             'country' => '中国',
             'province' => '江苏省',
             'city' => '南京市',
@@ -20,6 +21,13 @@ class CustomerSyncTest extends BaseTest
             'contactor' => '张三',
             'customerCode' => 'DPB002',
             'customerName' => '张三',
+            // 非必填
+            'street' => '安德门大街',
+            'zipcode' => '212000',
+            'phone' => '55555555',
+            'email' => 'test@test.com',
+            'personalPhone' => '13000000000',
+            'fax' => '55555555',
         ]);
         $ret = $this->client->customerSync($customer->toXML());
         var_dump($ret);
