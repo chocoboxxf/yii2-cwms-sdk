@@ -1,6 +1,6 @@
 <?php
 /**
- * 查询条件数组对象
+ * 查询条件组合对象
  * User: chocoboxxf
  * Date: 2017/8/8
  */
@@ -9,7 +9,7 @@ namespace chocoboxxf\Cwms\Model\Inventory\Query;
 use chocoboxxf\Cwms\Model\Base;
 
 /**
- * 查询条件数组对象
+ * 查询条件组合对象
  * @package chocoboxxf\Cwms\Model\Inventory\Query
  */
 class CriteriaList extends Base
