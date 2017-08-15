@@ -33,7 +33,7 @@ class CustomerSyncTest extends BaseTest
             'personalPhone' => '13000000000',
             'fax' => '55555555',
         ]);
-        $ret = $this->client->customerSync($customer->toXML());
+        $ret = $this->client->customerSync($customer);
         var_dump($ret);
     }
 }

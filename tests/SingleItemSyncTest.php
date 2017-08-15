@@ -84,7 +84,7 @@ class SingleItemSyncTest extends BaseTest
             'supplierCode' => '10000001',
             'supplierName' => '雨润',
         ]);
-        $ret = $this->client->singleItemSync($singleItem->toXML());
+        $ret = $this->client->singleItemSync($singleItem);
         var_dump($ret);
     }
 }

@@ -36,7 +36,7 @@ class InventoryQueryTest extends BaseTest
             // 必填
             'criteriaList' => $criteriaList,
         ]);
-        $ret = $this->client->inventoryQuery($query->toXML());
+        $ret = $this->client->inventoryQuery($query);
         var_dump($ret);
     }
 }

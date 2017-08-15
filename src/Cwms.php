@@ -215,7 +215,7 @@ class Cwms extends Component
             'v' => $requestVersion,
         ];
         // 目前都是POST请求方式
-        $result = $this->client->request('POST', $requestName, $params, [], $requestObject);
+        $result = $this->client->request('POST', $requestName, $params, [], $requestObject->toXML());
         return $result;
     }
 }

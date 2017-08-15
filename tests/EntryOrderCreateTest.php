@@ -122,7 +122,7 @@ class EntryOrderCreateTest extends BaseTest
             'entryOrder' => $entryOrder,
             'orderLines' => $orderLines,
         ]);
-        $ret = $this->client->entryOrderCreate($order->toXML());
+        $ret = $this->client->entryOrderCreate($order);
         var_dump($ret);
     }
 }

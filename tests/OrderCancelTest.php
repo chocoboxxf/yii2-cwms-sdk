@@ -26,7 +26,7 @@ class OrderCancelTest extends BaseTest
             'orderType' => 'CGRK',
             'cancelReason' => '测试取消',
         ]);
-        $ret = $this->client->orderCancel($cancel->toXML());
+        $ret = $this->client->orderCancel($cancel);
         var_dump($ret);
     }
 }

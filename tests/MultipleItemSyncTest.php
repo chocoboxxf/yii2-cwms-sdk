@@ -140,7 +140,7 @@ class MultipleItemSyncTest extends BaseTest
             'ownerCode' => 'DPB002',
             'items' => $items,
         ]);
-        $ret = $this->client->multipleItemSync($multipleItem->toXML());
+        $ret = $this->client->multipleItemSync($multipleItem);
         var_dump($ret);
     }
 }

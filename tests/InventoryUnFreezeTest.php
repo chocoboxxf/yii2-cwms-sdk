@@ -43,7 +43,7 @@ class InventoryUnFreezeTest extends BaseTest
             'warehouseCode' => 'LS001',
             'orderLines' => $orderLines,
         ]);
-        $ret = $this->client->inventoryUnFreeze($unFreeze->toXML());
+        $ret = $this->client->inventoryUnFreeze($unFreeze);
         var_dump($ret);
     }
 }
