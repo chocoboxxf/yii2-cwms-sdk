@@ -15,7 +15,7 @@ use chocoboxxf\Cwms\Model\Base;
 class OrderLines extends Base
 {
     /**
-     * @var OrderLine[] 入库单商品对象
+     * @var OrderLine[] 入库单商品对象，数组
      * 必填
      */
     public $orderLine;
