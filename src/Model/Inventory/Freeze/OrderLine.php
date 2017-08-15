@@ -26,7 +26,6 @@ class OrderLine extends Base
     public $itemCode;
     /**
      * @var string 条形码
-     * 必填
      */
     public $barCode;
     /**
