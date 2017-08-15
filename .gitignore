@@ -1,3 +1,4 @@
 composer.lock
 vendor/
 tests/Localhost*
+phpunit.xml.dist.localhost
