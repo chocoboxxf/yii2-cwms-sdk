@@ -34,6 +34,12 @@ class Client
         $this->secretKey = $secretKey;
         $this->customerId = $customerId;
         $this->client = new \GuzzleHttp\Client([
+            'curl' => [
+                /**
+                 * 暂时强制使用HTTP 1.0，之前连接很容易遇到错误 cURL error 56: Recv failure: Connection reset by peer
+                 */
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
+            ]
         ]);
     }
 
