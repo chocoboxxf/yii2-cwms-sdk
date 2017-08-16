@@ -473,3 +473,86 @@ if ($result['flag'] === 'success') {
 }
 ....
 ```
+
+发货单创建接口
+
+```php
+$orderLine = [];
+
+$orderLine[] = OrderLine::newInstance([
+    'ownerCode' => 'DPB002',
+    'itemCode' => 'DPB002001',
+    'planQty' => 10,
+    'actualPrice' => 11.2,
+]); // 创建发货商品对象1
+
+$orderLine[] = OrderLine::newInstance([
+    'ownerCode' => 'DPB002',
+    'itemCode' => 'DPB002002',
+    'planQty' => 20,
+    'actualPrice' => 12.2,
+]); // 创建发货商品对象2
+
+$orderLines = OrderLines::newInstance([
+    'orderLine' => $orderLine,
+]); // 创建发货商品列表对象
+
+$senderInfo = SenderInfo::newInstance([
+    'name' => '发件人',
+    'mobile' => '13000000000',
+    'province' => '江苏省',
+    'city' => '南京市',
+    'detailAddress' => 'y路',
+]); // 创建发件人信息对象
+
+$receiverInfo = ReceiverInfo::newInstance([
+    'name' => '收件人',
+    'mobile' => '13000000000',
+    'province' => '江苏省',
+    'city' => '南京市',
+    'detailAddress' => 'y路',
+]); // 创建收件人信息对象
+
+$deliverOrder = DeliveryOrder::newInstance([
+    'deliveryOrderCode' => 'DPB0020001',
+    'orderType' => DeliveryOrder::ORDER_TYPE_JYCK,
+    'warehouseCode' => 'LS001',
+    'sourcePlatformCode' => DeliveryOrder::SOURCE_PLATFORM_CODE_OTHER,
+    'createTime' => '2017-08-08 00:11:22',
+    'placeOrderTime' => '2017-08-08 00:11:22',
+    'operateTime' => '2017-08-08 00:11:22',
+    'shopNick' => '店铺1',
+    'logisticsCode' => DeliveryOrder::LOGISTICS_CODE_SF,
+    'senderInfo' => $senderInfo,
+    'receiverInfo' => $receiverInfo,
+]); // 创建发货单基本信息对象
+
+$order = Order::newInstance([
+    'deliveryOrder' => $deliverOrder,
+    'orderLines' => $orderLines,
+]); // 创建发货单创建接口请求对象
+
+$result = Yii::$app->cwms->deliveryOrderCreate($order); // 调用发货单创建接口
+
+if ($result['flag'] === 'success') {
+    // 调用成功
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "success",
+    //     "code": "200",
+    //     "message": "接收成功",
+    //     "deliveryOrderId": "DPB0020004"
+    // }
+    ....
+} else {
+    // 调用失败
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "failure",
+    //     "code": "400",
+    //     "message": "承运商不存在"
+    // }
+    ....
+}
+....
+```

@@ -48,7 +48,7 @@ class OrderLine extends Base
     public $itemId;
     /**
      * @var string 商品名称
-     * 最长2000字
+     * 最长200字
      */
     public $itemName;
     /**
