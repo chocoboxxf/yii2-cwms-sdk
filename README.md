@@ -556,3 +556,64 @@ if ($result['flag'] === 'success') {
 }
 ....
 ```
+
+出库单创建接口
+
+```php
+$orderLine = [];
+
+$orderLine[] = OrderLine::newInstance([
+    'ownerCode' => 'DPB002',
+    'itemCode' => 'DPB002001',
+    'planQty' => 10,
+]); // 创建出库商品对象1
+
+$orderLines = OrderLines::newInstance([
+    'orderLine' => $orderLine,
+]); // 创建出库商品列表对象
+
+$receiverInfo = ReceiverInfo::newInstance([
+    'name' => '收件人',
+    'mobile' => '13000000000',
+    'province' => '江苏省',
+    'city' => '南京市',
+    'detailAddress' => 'y路',
+]); // 创建收件人信息对象
+
+$deliverOrder = DeliveryOrder::newInstance([
+    'deliveryOrderCode' => 'DPB0020001',
+    'orderType' => DeliveryOrder::ORDER_TYPE_QTCK,
+    'warehouseCode' => 'LS001',
+    'createTime' => '2017-08-08 00:11:22',
+    'receiverInfo' => $receiverInfo,
+]); // 创建出库单基本信息对象
+
+$order = Order::newInstance([
+    'deliveryOrder' => $deliverOrder,
+    'orderLines' => $orderLines,
+]); // 创建出库单创建接口请求对象
+
+$result = Yii::$app->cwms->stockoutCreate($order); // 调用出库单创建接口
+
+if ($result['flag'] === 'success') {
+    // 调用成功
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "success",
+    //     "code": "200",
+    //     "message": "接收成功",
+    //     "deliveryOrderId": "DPB0020004"
+    // }
+    ....
+} else {
+    // 调用失败
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "failure",
+    //     "code": "400",
+    //     "message": "货主不存在"
+    // }
+    ....
+}
+....
+```
