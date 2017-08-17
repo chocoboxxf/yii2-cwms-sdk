@@ -29,6 +29,7 @@ class Cwms extends Component
     const METHOD_INVENTORY_FREEZE = 'inventory.frozen'; // 库存冻结
     const METHOD_INVENTORY_UNFREEZE = 'inventory.unFrozen'; // 库存解冻
     const METHOD_DELIVERY_ORDER_CREATE = 'deliveryorder.create'; // 入库单创建接口
+    const METHOD_STOCKOUT_CREATE = 'stockout.create'; // 出库单创建接口
     /**
      * 接口方法对应版本号
      */
@@ -42,6 +43,7 @@ class Cwms extends Component
         Cwms::METHOD_INVENTORY_FREEZE => '2.0',
         Cwms::METHOD_INVENTORY_UNFREEZE => '2.0',
         Cwms::METHOD_DELIVERY_ORDER_CREATE => '2.0',
+        Cwms::METHOD_STOCKOUT_CREATE => '2.0',
     ];
     /**
      * API服务器地址
@@ -215,6 +217,20 @@ class Cwms extends Component
             Cwms::METHOD_DELIVERY_ORDER_CREATE,
             $this->methodVersions[Cwms::METHOD_DELIVERY_ORDER_CREATE],
             $deliveryOrder
+        );
+    }
+
+    /**
+     * 出库单创建接口
+     * @param \chocoboxxf\Cwms\Model\Stockout\Order $stockoutOrder
+     * @return array
+     */
+    public function stockoutCreate($stockoutOrder)
+    {
+        return $this->request(
+            Cwms::METHOD_STOCKOUT_CREATE,
+            $this->methodVersions[Cwms::METHOD_STOCKOUT_CREATE],
+            $stockoutOrder
         );
     }
 
