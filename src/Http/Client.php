@@ -95,6 +95,7 @@ class Client
                 'query' => $data,
             ]
         );
+        var_dump($body);
         $result = simplexml_load_string((string)$response->getBody());
         $result = json_decode(json_encode($result), true);
         return $result;

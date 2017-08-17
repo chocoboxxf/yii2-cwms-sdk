@@ -6,9 +6,9 @@
  */
 namespace chocoboxxf\Cwms\Model;
 
+use chocoboxxf\Cwms\Util\IgnoreEmptyNodeNormalizer;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use yii\base\Object;
 
@@ -23,7 +23,8 @@ abstract class Base extends Object
         parent::__construct($config);
         // 初始化XML生成器
         $encoders = [new XmlEncoder($this->rootNode)];
-        $normalizers = [new ObjectNormalizer(null, null, null, new ReflectionExtractor())];
+        // 未赋值字段在生成XML时过滤
+        $normalizers = [new IgnoreEmptyNodeNormalizer(null, null, null, new ReflectionExtractor())];
         $this->serializer = new Serializer($normalizers, $encoders);
     }
 
