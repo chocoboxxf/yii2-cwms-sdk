@@ -342,6 +342,22 @@ if ($result['flag'] === 'success') {
     //                  "inventoryType": "ZP",
     //                  "quantity": "300",
     //                  "lockQuantity": "0",
+    //                  "locationInfos": [
+    //                      {
+    //                          "locationInfo": {
+    //                             "locationName": "A-01",
+    //                              "quantity": "100",
+    //                              "lockQuantity": "0"
+    //                          }
+    //                      },
+    //                      {
+    //                          "locationInfo": {
+    //                             "locationName": "A-02",
+    //                              "quantity": "200",
+    //                              "lockQuantity": "0"
+    //                          }
+    //                      }
+    //                  ]
     //              }
     //         },
     //         {
@@ -352,6 +368,15 @@ if ($result['flag'] === 'success') {
     //                  "inventoryType": "ZP",
     //                  "quantity": "100",
     //                  "lockQuantity": "0",
+    //                  "locationInfos": [
+    //                      {
+    //                          "locationInfo": {
+    //                             "locationName": "A-01",
+    //                              "quantity": "100",
+    //                              "lockQuantity": "0"
+    //                          }
+    //                      }
+    //                  ]
     //              }
     //         }
     //     ]
