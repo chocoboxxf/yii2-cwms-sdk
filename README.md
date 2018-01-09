@@ -635,6 +635,8 @@ $deliverOrder = DeliveryOrder::newInstance([
     'warehouseCode' => 'LS001',
     'createTime' => '2017-08-08 00:11:22',
     'receiverInfo' => $receiverInfo,
+    'pickerInfo' => $pickerInfo,
+    'senderInfo' => $senderInfo,
 ]); // 创建出库单基本信息对象
 
 $order = Order::newInstance([
