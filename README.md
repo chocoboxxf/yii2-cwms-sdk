@@ -642,3 +642,77 @@ if ($result['flag'] === 'success') {
 }
 ....
 ```
+
+库存监控接口
+
+```php
+$inventoryMonitoring = [];
+
+$inventoryMonitoring[] = InventoryMonitoring::newInstance([
+    'warehouseName' => 'LS001',
+    'customerCode' => 'DPB002',
+    'itemCode' => 'DPB002001',
+]); // 创建查询条件对象1
+
+$inventoryMonitoring[] = InventoryMonitoring::newInstance([
+    'warehouseName' => 'LS001',
+    'customerCode' => 'DPB002',
+    'itemCode' => 'DPB002002',
+]); // 创建查询条件对象2
+
+$inventoryMonitoringList = InventoryMonitoringList::newInstance([
+    'inventoryMonitoring' => $inventoryMonitoring,
+]); // 创建查询条件组合对象
+
+$query = Query::newInstance([
+    'inventoryMonitoringList' => $inventoryMonitoringList,
+]); // 创建库存监控接口请求对象
+
+$result = Yii::$app->cwms->inventoryMonitor($query); // 调用库存监控接口
+
+if ($result['flag'] === 'success') {
+    // 调用成功
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "success",
+    //     "code": "200",
+    //     "items": {
+    //         "item": [
+    //             {
+    //                 "warehouseName": "LS001",
+    //                 "customerName": "张三",
+    //                 "itemCode": "DPB002001",
+    //                 "itemName": "测试商品1",
+    //                 "barcodeNum": "DPB002001",
+    //                 "normalFlag": "ZP",
+    //                 "lockQuantity": "0",
+    //                 "allQuantity": "800",
+    //                 "diffQuantity": "800"
+    //             },
+    //             {
+    //                 "warehouseName": "LS001",
+    //                 "customerName": "张三",
+    //                 "itemCode": "DPB002002",
+    //                 "itemName": "测试商品4",
+    //                 "barcodeNum": "DPB002002",
+    //                 "normalFlag": "ZP",
+    //                 "lockQuantity": "0",
+    //                 "allQuantity": "0",
+    //                 "diffQuantity": "0"
+    //             }
+    //         ]
+    //     }
+    // }
+    ....
+} else {
+    // 调用失败
+    // 返回数据格式（原格式XML，转义成json）
+    // {
+    //     "flag": "failure",
+    //     "code": "400",
+    //     "message": "货主编码不能为空"
+    // }
+    ....
+}
+....
+```
