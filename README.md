@@ -597,6 +597,30 @@ $orderLines = OrderLines::newInstance([
     'orderLine' => $orderLine,
 ]); // 创建出库商品列表对象
 
+$pickerInfo = PickerInfo::newInstance([
+    'company' => '收件公司',
+    'name' => '收件人',
+    'tel' => '55555555',
+    'mobile' => '13000000000',
+    'id' => '310101198808080000',
+    'carNo' => '沪A88888',
+]); // 创建提货人信息对象
+
+$senderInfo = SenderInfo::newInstance([
+    'name' => '发件人',
+    'mobile' => '13000000000',
+    'province' => '江苏省',
+    'city' => '南京市',
+    'detailAddress' => 'y路',
+    'company' => '发件公司',
+    'zipCode' => '200000',
+    'tel' => '55555555',
+    'email' => 'sender@test.com',
+    'countryCode' => '中国',
+    'area' => '雨花台区',
+    'town' => 'x镇',
+]); // 创建发件人信息对象
+
 $receiverInfo = ReceiverInfo::newInstance([
     'name' => '收件人',
     'mobile' => '13000000000',
